@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Working\\testAPI\\test\\test.csproj": {}
+    "F:\\Working\\testAPI\\Backend_API\\test\\test.csproj": {}
   },
   "projects": {
-    "F:\\Working\\testAPI\\test\\test.csproj": {
+    "F:\\Working\\testAPI\\Backend_API\\test\\test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Working\\testAPI\\test\\test.csproj",
+        "projectUniqueName": "F:\\Working\\testAPI\\Backend_API\\test\\test.csproj",
         "projectName": "test",
-        "projectPath": "F:\\Working\\testAPI\\test\\test.csproj",
+        "projectPath": "F:\\Working\\testAPI\\Backend_API\\test\\test.csproj",
         "packagesPath": "C:\\Users\\Duc_Nm\\.nuget\\packages\\",
-        "outputPath": "F:\\Working\\testAPI\\test\\obj\\",
+        "outputPath": "F:\\Working\\testAPI\\Backend_API\\test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0-preview.2.20120.8, )"

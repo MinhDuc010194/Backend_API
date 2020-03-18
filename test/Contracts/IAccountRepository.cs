@@ -8,5 +8,6 @@ namespace test.Contracts
 {
     public interface IAccountRepository : IRepositoryBase<Account>
     {
+        public IEnumerable<Account> AccountsByOwner(Guid ownerId);
     }
 }

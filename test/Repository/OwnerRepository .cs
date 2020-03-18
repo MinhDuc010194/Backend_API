@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using test.Contracts;
 using test.Entities;
 using test.Entities.Models;
@@ -20,6 +20,34 @@ namespace test.Repository
             return FindAll()
                 .OrderBy(ow => ow.Name)
                 .ToList();
+        }
+
+        public Owner GetOwnerById(Guid ownerId)
+        {
+            return FindByCondition(owner => owner.Id.Equals(ownerId))
+                    .FirstOrDefault();
+        }
+
+        public Owner GetOwnerWithDetails(Guid ownerId)
+        {
+            return FindByCondition(owner => owner.Id.Equals(ownerId))
+                .Include(ac => ac.Accounts)
+                .FirstOrDefault();
+        }
+
+        public void CreateOwner(Owner owner)
+        {
+            Create(owner);
+        }
+
+        public void UpdateOwner(Owner owner)
+        {
+            Update(owner);
+        }
+
+        public void DeleteOwner(Owner owner)
+        {
+            Delete(owner);
         }
     }
 }
