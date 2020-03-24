@@ -128,3 +128,4 @@ F:\Working\testAPI\Backend_API\test\obj\Debug\netcoreapp3.0\test.pdb
 F:\Working\testAPI\Backend_API\test\obj\Debug\netcoreapp3.0\test.MvcApplicationPartsAssemblyInfo.cs
 F:\Working\testAPI\Backend_API\test\bin\Debug\netcoreapp3.0\AutoMapper.dll
 F:\Working\testAPI\Backend_API\test\bin\Debug\netcoreapp3.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+F:\Working\testAPI\Backend_API\test\bin\Debug\netcoreapp3.0\libman.json

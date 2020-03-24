@@ -19,5 +19,11 @@ namespace test.Repository
         {
             return FindByCondition(a => a.OwnerId.Equals(ownerId)).ToList();
         }
+        public PagedList<Account> GetAllOwners(Guid ownerId,AccountParameters ownerParameters)
+        {
+            return PagedList<Account>.ToPagedList(FindAll().Where(ow => ow.OwnerId == ownerId),
+                    ownerParameters.PageNumber,
+                    ownerParameters.PageSize);
+        }
     }
 }
