@@ -7,7 +7,7 @@ using System.Text;
 using test.Contracts;
 using test.Entities;
 using test.Entities.Models;
-
+using System.Linq.Dynamic.Core;
 
 namespace test.Repository
 {
@@ -24,6 +24,7 @@ namespace test.Repository
                     ownerParameters.PageNumber,
                     ownerParameters.PageSize);
         }
+
         public PagedList<Owner> GetOwners(OwnerParameters ownerParameters)
         {
             var owners = FindByCondition(o => o.DateOfBirth.Year >= ownerParameters.MinYearOfBirth &&
@@ -31,10 +32,13 @@ namespace test.Repository
 
             SearchByName(ref owners, ownerParameters.Name);
 
+            ApplySort(ref owners, ownerParameters.OrderBy);
+
             return PagedList<Owner>.ToPagedList(owners.OrderBy(on => on.Name),
                 ownerParameters.PageNumber,
                 ownerParameters.PageSize);
         }
+
         private void SearchByName(ref IQueryable<Owner> owners, string ownerName)
         {
             if (!owners.Any() || string.IsNullOrWhiteSpace(ownerName))
@@ -55,6 +59,7 @@ namespace test.Repository
                 .Include(ac => ac.Accounts)
                 .FirstOrDefault();
         }
+
         private void ApplySort(ref IQueryable<Owner> owners, string orderByQueryString)
         {
             if (!owners.Any())
@@ -91,7 +96,7 @@ namespace test.Repository
                 return;
             }
 
-            //owners = owners.OrderBy(orderQuery);
+            owners = owners.OrderBy(orderQuery);
         }
 
         public void CreateOwner(Owner owner)
